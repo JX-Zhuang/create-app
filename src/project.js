@@ -23,12 +23,13 @@ module.exports = (projectName) => {
 		const packageJSONPath = path.join(projectDir, 'package.json');
 		const packageJSONLockPath = path.join(projectDir, 'package-lock.json');
 		const packageJSON = require(packageJSONPath);
+		const packageJSONLock = require(packageJSONLockPath);
 		packageJSON.name = packageSetting.name || packageJSON.name;
 		packageJSON.version = packageSetting.version || packageJSON.version;
 		fs.writeFileSync(packageJSONPath, JSON.stringify(packageJSON, null, 2));
-		if (fs.existsSync(packageJSONLockPath)) {
-			fs.unlinkSync(packageJSONLockPath);
-		}
+		packageJSONLock.name = packageJSON.name;
+		packageJSONLock.version = packageJSON.version;
+		fs.writeFileSync(packageJSONLockPath, JSON.stringify(packageJSONLock, null, 2));
 		spinner.succeed();
 		return true;
 	};
