@@ -11,7 +11,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git@git.corp.hrtps.com:h5-basic/create-app.git"
+		"url": "git@github.com:JX-Zhuang/create-app.git"
 	},
 	"author": "zhuangjiaxiang <who.zhuang@gmail.com>",
 	"license": "ISC",
